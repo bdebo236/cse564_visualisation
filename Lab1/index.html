@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Spotify Data Visualisation</title>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+        <body>
+            <h1>Spotify Data Visualization</h1>
+            <div id="tab">
+                <button id="bar-tab" class="tablinks active" data-target="bar-container">Bar Chart</button>
+                <button id="hist-tab" class="tablinks" data-target="hist-container">Histogram</button>
+                <button id="scatter-tab" class="tablinks" data-target="scatter-container">Scatter Plot</button>
+            </div>
+            <div id="bar-container" class="chart-container">
+                <div id="bar-controls">
+                    <label for="bar-category-dropdown">Select Category:</label>
+                    <select id="bar-category-dropdown"></select>
+                    <button id="bar-toggle-axis">Toggle Axis</button>
+                </div>
+                <div id="barchart"></div>
+            </div>
+
+            <div id="hist-container" class="chart-container">
+                <div id="hist-controls">
+                    <label for="hist-category-dropdown">Select Category:</label>
+                    <select id="hist-category-dropdown"></select>
+                    <button id="hist-toggle-axis">Toggle Axis</button>
+                </div>
+                <div id="histogram"></div>
+            </div>
+
+            <div id="scatter-container" class="chart-container">
+                <div id="scatter-controls">
+                    <label><input type="radio" name="axis-selection" id="x-axis" checked> X-Axis</label>
+                    <label><input type="radio" name="axis-selection" id="y-axis"> Y-Axis</label>
+                    <select id="feature-dropdown"></select>
+                </div>
+                <div id="scatterplot"></div>
+            </div>
+            <script type="text/javascript" src="d3script.js"></script>
+            <script type="text/javascript" src="script.js"></script>
+        </body>
+</html>

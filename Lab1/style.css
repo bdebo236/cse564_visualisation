@@ -1,0 +1,141 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #121212;
+    color: #e1e1e1;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #1db954;
+    margin-top: 2rem;
+}
+
+#tab {
+    display: flex;
+    justify-content: space-around;
+    background-color: #282828; 
+    padding: 10px 0;
+    border-radius: 25px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+.tablinks {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+}
+
+.tablinks:hover {
+    background-color: #383838; 
+    color: white;  
+}
+
+.tablinks.active {
+    background-color: #1db954;  
+    color: #121212;
+}
+
+.tablinks:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px #1db954; 
+}
+
+
+/* Hide non-active chart containers */
+.chart-container {
+    display: none;
+}
+
+/* Show active chart */
+.chart-container.active {
+    display: block;
+}
+
+/* Prevent unwanted overflow */
+.hidden {
+    display: none;
+}
+
+.chart-container {
+    margin: 20px 10px;
+    padding: 20px;
+    height: 100%;
+    /* max-height: 100vh; */
+    width: 95%;
+    max-width: 100vw;
+    border-radius: 8px;
+    background-color: #181818;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: absolute;
+}
+
+#bar-controls, #hist-controls, #scatter-controls {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Dropdown and button styling */
+select, button {
+    background-color: #333;
+    color: #e1e1e1;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+select:focus, button:focus {
+    outline: none;
+    border-color: #1db954;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #1db954;
+    color: #121212;
+}
+
+/* Styling for the charts */
+#barchart, #histogram, #scatterplot {
+    width: 100%;
+    height: 550px;
+    background-color: #121212;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#scatterplot-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Scatterplot controls */
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Make the page more compact
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #bar-container, #hist-container, #scatter-container {
+        width: 95%;
+    }
+} */
