@@ -1,0 +1,90 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #121212;
+    color: #e1e1e1;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #282828; 
+    padding: 10px 0;
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+    margin-top: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-link {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+.tab-link:hover {
+    background-color: #383838; 
+    color: white;  
+}
+
+.tab-link.active {
+    background-color: #1db954;  
+    color: #121212;
+}
+
+.tab-link:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px #383838; 
+}
+
+svg {
+    margin-top: 20px;
+    background: #181818;
+    border-radius: 8px;
+}
+
+.graph-label {
+    fill: white;
+}

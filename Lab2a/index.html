@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Data Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Lab2a: Spotify Data Visualization</h1>
+    <nav>
+        <ul>
+            <li><a href="#page1" class="tab-link active" data-tab="page1">PCA Scree & Scatterplot</a></li>
+            <li><a href="#page2" class="tab-link" data-tab="page2">PCA Biplot</a></li>
+            <li><a href="#page3" class="tab-link" data-tab="page3">K-Means Elbow</a></li>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        <div id="page1" class="tab-content active">
+            <h2>PCA Scree Plot & Scatterplot Matrix</h2>
+            <div id="pca-scree"></div>
+            <div id="scatterplot-matrix"></div>
+        </div>
+        <div id="page2" class="tab-content">
+            <h2>PCA Biplot with Cluster Colors</h2>
+            <div id="pca-biplot"></div>
+        </div>
+        <div id="page3" class="tab-content">
+            <h2>K-Means Elbow Plot</h2>
+            <div id="kmeans-elbow"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="d3script.js"></script>
+</body>
+</html>
