@@ -88,3 +88,16 @@ svg {
 .graph-label {
     fill: white;
 }
+
+#scatterplot-matrix text {
+    font-size: 10px;
+    fill: white;
+}
+
+#scatterplot-matrix .tick line {
+    stroke: #eee;
+}
+
+#scatterplot-matrix .domain {
+    stroke: #ccc;
+}

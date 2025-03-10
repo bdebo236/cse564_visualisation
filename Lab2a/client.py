@@ -90,26 +90,38 @@ def get_kmeans():
 
 @app.route('/scatterplot')
 def get_scatterplot_data():
-    scatter_data = data[top4_features].to_dict(orient="records")
+    # Get cluster labels using the elbow point k
+    kmeans = KMeans(n_clusters=k_elbow, random_state=42, n_init=10)
+    cluster_labels = kmeans.fit_predict(pca_data[:, :intrinsic_dim])
+    
+    scatter_data = data[top4_features].copy()
+    scatter_data['Cluster'] = cluster_labels.tolist()
+    
     return jsonify({
         "top_4_features": top4_features,
-        "scatter_data": scatter_data
+        "scatter_data": scatter_data.to_dict(orient="records")
     })
 
 @app.route('/pca_biplot')
 def get_pca_biplot():
-    # Fit KMeans with optimal k
+    # Fit KMeansk
     kmeans = KMeans(n_clusters=k_elbow, random_state=42, n_init=10)
-    cluster_labels = kmeans.fit_predict(pca_data[:, :intrinsic_dim])
-
-    # Prepare PCA component scores
+    cluster_labels = kmeans.fit_predict(pca_data[:, :2])  
+    
+    # Prepare PCA component scores (already using first 2 PCs)
     pca_df = pd.DataFrame(pca_data[:, :2], columns=["PC1", "PC2"])
     pca_df["cluster"] = cluster_labels
 
+    # Prepare PCA loadings for visualization
+    loadings = pca.components_[:2].T
+    loadings_df = pd.DataFrame(loadings, index=numerical_data.columns, columns=["PC1", "PC2"])
+    top4_loadings = loadings_df.loc[top4_features].to_dict(orient="records")
+
     return jsonify({
-        "pca_biplot_data": pca_df.to_dict(orient="records"),
-        "top_4_features": top4_features
-    })    
+        "pca_biplot_data": pca_df.to_dict(orient="records"),  # Convert pca_df to dict
+        "top_4_features": top4_features,
+        "top_4_loadings": top4_loadings
+    })   
 
 @app.route('/page1')
 def page1():
