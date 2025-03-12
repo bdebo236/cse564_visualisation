@@ -115,26 +115,48 @@ def get_scatterplot_data():
 def get_pca_biplot():
     chosen_dim = request.args.get('intrinsic_dim', default=intrinsic_dim, type=int)
     chosen_k = request.args.get('k', default=k_elbow, type=int)
-    # For biplot we always project on the first two PCs (assume chosen_dim ≥ 2)
-    kmeans = KMeans(n_clusters=chosen_k, random_state=42, n_init=10)
-    cluster_labels = kmeans.fit_predict(pca_data[:, :2])  
-    pca_df = pd.DataFrame(pca_data[:, :2], columns=["PC1", "PC2"])
-    pca_df["cluster"] = cluster_labels
-
-    # For biplot, we still determine the top-4 features from the chosen intrinsic dimension
+    # Ensure at least 2 dimensions for a biplot matrix
     if chosen_dim < 2:
         chosen_dim = 2
-    top4_attributes = np.argsort(np.sum(np.abs(pca.components_[:chosen_dim]) ** 2, axis=0))[-4:]
-    top4_features = numerical_data.columns[top4_attributes].tolist()
+    # Compute cluster assignments on the PCA data for the chosen dimensions
+    kmeans = KMeans(n_clusters=chosen_k, random_state=42, n_init=10)
+    cluster_labels = kmeans.fit_predict(pca_data[:, :chosen_dim])
+    # Create a DataFrame with PC1, PC2, ..., PC{n}
+    pca_df = pd.DataFrame(pca_data[:, :chosen_dim],
+                          columns=[f"PC{i+1}" for i in range(chosen_dim)])
+    pca_df["cluster"] = cluster_labels
 
-    loadings = pca.components_[:2].T
-    loadings_df = pd.DataFrame(loadings, index=numerical_data.columns, columns=["PC1", "PC2"])
-    top4_loadings = loadings_df.loc[top4_features].to_dict(orient="records")
+    # Get loadings for the chosen dimensions
+    loadings = pca.components_[:chosen_dim].T
+    loadings_df = pd.DataFrame(loadings, index=numerical_data.columns,
+                               columns=[f"PC{i+1}" for i in range(chosen_dim)])
 
     return jsonify({
         "pca_biplot_data": pca_df.to_dict(orient="records"),
-        "top_4_features": top4_features,
-        "top_4_loadings": top4_loadings
+        "loadings": loadings_df.to_dict(orient="records"),
+        "n": chosen_dim
+    })
+
+@app.route('/cluster')
+def get_cluster():
+    chosen_k = request.args.get('k', default=k_elbow, type=int)
+    
+    # Use only the first two principal components for clustering
+    kmeans = KMeans(n_clusters=chosen_k, random_state=42, n_init=10)
+    cluster_labels = kmeans.fit_predict(pca_data[:, :2])
+    
+    # Create a DataFrame using only PC1 and PC2
+    pca_df = pd.DataFrame(pca_data[:, :2], columns=["PC1", "PC2"])
+    pca_df["cluster"] = cluster_labels
+
+    # Get loadings for PC1 and PC2 only
+    loadings = pca.components_[:2].T
+    loadings_df = pd.DataFrame(loadings, index=numerical_data.columns, columns=["PC1", "PC2"])
+
+    return jsonify({
+        "pca_biplot_data": pca_df.to_dict(orient="records"),
+        "loadings": loadings_df.to_dict(orient="records"),
+        "n": 2
     })
 
 @app.route('/page1')
