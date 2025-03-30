@@ -1,0 +1,36 @@
+<!-- static/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Visualization Dashboard</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="#" id="link-mds-obs">MDS Observations</a>
+    <a href="#" id="link-mds-vars">MDS Variables</a>
+    <a href="#" id="link-pcp">Parallel Coordinates</a>
+  </div>
+
+  <!-- Plot Containers -->
+  <div class="container">
+    <div id="mds-obs" class="plot">
+      <h2>MDS Plot: Observations</h2>
+      <svg width="800" height="600"></svg>
+    </div>
+    <div id="mds-vars" class="plot">
+      <h2>MDS Plot: Variables</h2>
+      <svg width="800" height="600"></svg>
+    </div>
+    <div id="pcp" class="plot">
+      <h2>Parallel Coordinates Plot</h2>
+      <svg width="1000" height="600"></svg>
+    </div>
+  </div>
+
+  <script src="d3script.js"></script>
+</body>
+</html>
