@@ -1,21 +1,20 @@
-<!-- static/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Data Visualization Dashboard</title>
+  <title>Spotify Billboard Data Visualisation</title>
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
+  <h1>Lab2b: Spotify and Billboard Data Visualization</h1>
   <div class="navbar">
     <a href="#" id="link-mds-obs">MDS Observations</a>
     <a href="#" id="link-mds-vars">MDS Variables</a>
     <a href="#" id="link-pcp">Parallel Coordinates</a>
+    <a href="#" id="link-elbow">Elbow Plot</a>
   </div>
 
-  <!-- Plot Containers -->
   <div class="container">
     <div id="mds-obs" class="plot">
       <h2>MDS Plot: Observations</h2>
@@ -23,11 +22,21 @@
     </div>
     <div id="mds-vars" class="plot">
       <h2>MDS Plot: Variables</h2>
-      <svg width="800" height="600"></svg>
-    </div>
+      <div id="mds-vars-svg">
+        <svg width="800" height="600"></svg>
+      </div>
+      <div id="controls">
+        <p id="selected-order">Selected Order: (none)</p>
+        <button id="apply-ordering">Apply Ordering to PCP</button>
+      </div>
+    </div>    
     <div id="pcp" class="plot">
       <h2>Parallel Coordinates Plot</h2>
       <svg width="1000" height="600"></svg>
+    </div>
+    <div id="elbow" class="plot">
+      <h2>K-Means Elbow Plot</h2>
+      <div id="kmeans-elbow"></div>
     </div>
   </div>
 
