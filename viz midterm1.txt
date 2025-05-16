@@ -1,0 +1,201 @@
+Name: DEBO PARNA PANERIEE Stony Brook ID: 116554045"
+
+CSE 564 Visualization — Midterm Exam
+Spring 2025
+
+This exam is closed book, closed notes, closed neighbor, and closed smart phone. There is no
+need for a calculator. Please do all the problems, at least in part. If you have to derive a
+mathematical result, plug in the numbers given into the equations. Good luck!!
+
+1. Visualization and the Challenger Disaster
+
+(a) The 1986 Challenger explosion was preceded by a set of visual materials that failed to convey
+the risk of launching in cold weather.
+
+Why did the charts presented before the shuttle’s launch fail to effectively communicate the risk?
+What key visualization principles wére violated?
+If you were tasked with redesigning those charts, what approach would you take to better convey the relationship between temperature and O-ring damage?
+
+(b) Now imagine you are part of a team responsible for presenting findings to a city council about a potential landslide risk in a mountainous region. The dataset includes: daily rainfall (in
+mm), soil moisture levels, historical landslide events, and slope steepness. Your team prepares a slide deck showing 4 charts, each focused on a different variable independently. The slides
+contain lots of numbers but few visuals showing correlations or patterns. After the presentation, council members are unconvinced that emergency measures are needed.
+
+Analyze what may have gone wrong in the team’s presentation approach, referencing core visualization principles.
+
+How might you redesign the presentation to better support decision-making? Think beyond the
+Challenger disaster example. Present and sketch(thret concrete design ideas that would improve
+the communication of risk to a non-expert audience (e.g., city officials or residents). For each,
+briefly describe: (i) the visualization technique or approach you would use, (ii) what specific
+insight it is meant to convey, (iii) why this is more effective than the original approach. You may
+draw from any examples in class (e.g., John Snow, COVID dashboards, visual perception
+concepts, etc.), but your ideas should be adapted to this new context. Use the next page.
+
+
+2. Designing Effective Visual Summaries of Data (UserID Reaction Time (ms))
+
+Assume you are analyzing a dataset that records the reaction times of 
+2,000 users in a user interface experiment. The data ranges from 150 
+to 850 ms, but has some sharp peaks and troughs due to noise or very frequent outliers. To the right is an example dataset of 20 observations.
+
+(a) Experiment with histograms that trade off fidelity and readability. 
+Which histogram communicates the overall distribution more deny: and why? Why might the other histogram be considered too “busy”?
+
+(b) Suggest and justify a technique that reduces busyness ‘without losing meaningful structure. Your proposal may involve a metric that can be optimized or an alternative visualization method.
+Be specific in describing how your approach can help reduce noise while preserving or even
+enhancing important patterns in the data.
+
+3. Data wrangling
+
+You are a data analyst working with an agricultural research group that’s building an interactive
+
+dashboard to help farmers and policymakers monitor crop yield patterns across the Midwest. The
+
+goal is to understand how environmental and soil conditions influence agricultural
+
+productivity—and to visualize these relationships clearly. You have access to 3 different sources:
+
+e Dataset A: A collection of annual crop yield reports submitted by individual farms
+
+e Dataset B: Daily weather data (precipitation and temperature) collected from satellites and
+ground sensors.
+
+e Dataset C: Soil quality measurements, such as pH, organic matter content, and drainage,
+collected manually from a subset of farms every few years.
+
+(a) What is your first line of action and what other information do you need?
+
+(b) Let’s assume you’ve cobbled together a dataset like the one shown on the next page. You
+notice that one value is missing—a common issue in real-world data. Investigate three different
+
+methods to estimate this missing value:
+
+1. Replace by average
+2. Estimate via correlation (visual method is OK)
+3. Estimate via k-nearest neighbors (KNN) using Manhattan distance and k=3
+
+The description of the methods is left intentionally vague—recall what we discussed in class.
+Compute the estimates for each method and compare the results. Then, reflect on which estimate
+you trust the most, and explain why.
+
+Use the next page to write down your answers.
+
+Farm ID Year Crop Yield (t/ha) Avg. Rainfall(mm) Avg. Temp {°C) Soil Quality Score
+FOO1 2022 5.5 413 20.1 60
+
+F002 2022 5.6 409 a 63
+FOO3 2022 5.8 370 8. 65
+FOO4 2022 6.1 382 18.8 68
+FOOS 2022 6 425, 19.3 70
+FOO6 2022 6.3 (427/ 20.5 72
+FOO7 2022 54, 434 19.8 74
+FOO8 = 2022 & 439 20.3 77
+FOOS 2022 6.9 366 21.9 79
+FO10 2022 6.6 426 18.3 missing
+
+4. Bias
+You design a dashboard to help city planners understand neighborhood-level health disparities.
+The dashboard includes maps, bar charts, and scatterplots, derived from real-world data.
+
+After releasing a pilot version, several planners report being surprised by what they call
+"suspicious patterns"—like one‘ neighborhood appearing far worse than others across all
+indicators. Upon review, you find that:
+
+The same neighborhood was used as the starting example in training.
+
+Some plots used perspective (3D) rendering.
+
+Some neighborhoods were not available in the dashboard.
+
+A new chart added to highlight affordability shifted attention away from previously balanced
+comparisons.
+
+(a) Identify and name at least three different _types of bias that may have influenced user
+interpretation in this scenario. For each bias you identified, briefly explain how it works and why it might have misled the planners.
+(b) Suggest one design change that could mitigate one of the biases you described.
+
+
+5. Feature analysis 
+You are helping a pollinator conservation group build an interactive visualization based on a
+
+dataset with 18 environmental features collected from dozens of flower fields. The team wants to
+identify similar fields, visualize patterns in bee health, and highlight the most important
+environmental variables.
+
+(a) The goal is to construct a biplot. Mark the option below that best justifies the use of a biplot:
+
+____ Identify outliers based on missing data values in the original dataset
+Estimate the precise numerical correlation between each pair of original variables *
+Visualize both the relationships among data points and the influence of variables on
+principal components
+___ Display how the original features contribute to the overall variance without any projection or
+transformation £
+___ Determine whether the original dataset followed a normal distribution x
+
+(b) The PCA analysis yields the following loadings for the first two principal components. Each row corresponds to a feature measured across flower fields. 
+Use the PCI and PC2 loadings to identify groups of features that form natural clusters. Then, give each cluster a descriptive label that captures what the features have in common. Label the features the table by the cluster ID. 
+
+Justify your clustering based on the direction’ and magnitude of the loadings, and the meaning of
+the features themselves. Hint: How do these clusters relate to broader environmental themes that
+are important to bees?
+
+6. Perception
+You are creating a map-based visualization to help emergency teams monitor wildfire risk zones,
+wind patterns, and escape routes. The team is considering several color schemes to highlight and
+
+contrast key features.
+
+(a) Which of the following color combinations should you
+___ Yellow on dark blue
+____ Blue vs. orange
+____ Red vs. green
+____ Black on white
+____ Purple vs. yellow c
+
+(b) Why? There are two reasons. Explain.
+
+7. Visualization design
+You are working with a design team building a map-based dashboard to show air quality across
+
+different neighborhoods. Each district on the map also contains a small circular disk centered
+inside it to represent status.
+
+The designers want to use color to represent pollution levels, which are continuous numeric values. They’ve asked for your input.
+
+(a) Is color an appropriate channel for showing quantitative data? Justify your answer by
+\O referencing what you’ve learned about visual variables and perception. Think broadly.
+
+
+(b) The team plans to use a ColorBrewer colormap. What type of ColorBrewer scale would you recommend for this use case: sequential, diverging, or qualitative? Why?
+
+(c) To highlight districts with dangerously high pollution, the team is considering two options for
+modifying the disk inside each district:
+
+1. Change the color of the disk to bright red
+
+2. Change the shape of the disk from a circle to a triangle
+Which option would you recommend and why?
+
+8. Visualizing Data Distributions
+
+Your team uses box plots to show pollution levels across different districts over time. A
+stakeholder expresses concern that the box plots don’t reveal important variation in the data,
+such as multiple peaks or unusual data shapes.
+
+(a) Briefly explain why box plots can be misleading or insufficient for understanding the full distribution of a dataset.
+
+Suggest and justify one alternative visualization that would better reveal the shape or
+structure of the data. Support your answer with a sketch of the visualization
+9. Multivariate visualization
+
+You are a market analyst working for a consumer goods company, tasked with evaluating the
+performance of three new product prototypes across multiple criteria. The company has collected
+data on various attributes of the prototypes and wants to understand how they compare in these.
+
+Prototype Quality Price Design Durability Innovation
+Prototype 1 3 4 2 5 4
+Prototype 2 7 di 3 5 3 ‘ 5
+Prototype 3 4 2, 3 4 2
+
+(a) Visualize these instances as a radar plot 
+(b) Visualize them as a star plot
+(c) Visualize the Quality, Price, & Design attributes as a scatterplot matrix
